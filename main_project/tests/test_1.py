@@ -8,9 +8,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class Test_1():  # создаем класс Test_1
     def test_select_product(self):  # создаем метод
-        driver = webdriver.Chrome(
-            executable_path='C:\\Users\\galie\\OneDrive\\Рабочий стол\\chromedriver.exe')  # Указали директорию в которой находится хром драйвер, для того чтобы мы могли обращаться к браузеру гугл хром
-        base_url = 'app.moovenow.online'  # совершенствуем код в переменную пихаем юрл который используем, удобно для ооп и для списков юрл
+        driver = webdriver.Chrome()  # Указали директорию в которой находится хром драйвер, для того чтобы мы могли обращаться к браузеру гугл хром
+        base_url = 'https://app.moovenow.online/'  # совершенствуем код в переменную пихаем юрл который используем, удобно для ооп и для списков юрл
         driver.get(base_url)  # указываем url на который мы хотим заходить
         driver.maximize_window()  # открывается браузер на максимальный экран
         time.sleep(1)
@@ -26,12 +25,12 @@ class Test_1():  # создаем класс Test_1
         print("Input sum money")
 
         button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-kFuwaP gMMzMJ']")))
+            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-fbJfA eWVBmF']")))
         button_login.click()
         print("Click Next Button")
 
         button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//div[@class='sc-csCMJt gWXRFM']")))
+            EC.element_to_be_clickable((By.XPATH, "//div[@class='sc-ktEKTO gaaqEw']")))
         button_login.click()
         print("Click Moscow")
 
@@ -48,7 +47,8 @@ class Test_1():  # создаем класс Test_1
         time.sleep(2)
 
         button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//div[@class='sc-csCMJt gWXRFM' and contains(text(), 'Amusement park')]")))
+            EC.element_to_be_clickable(
+                (By.XPATH, "//div[@class='sc-csCMJt gWXRFM' and contains(text(), 'Amusement park')]")))
         button_login.click()
         print("Click Amusement park")
 
