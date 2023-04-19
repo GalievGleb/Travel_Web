@@ -9,8 +9,8 @@ from selenium.webdriver.support import expected_conditions as EC
 class Test_1():  # создаем класс Test_1
     def test_select_product(self):  # создаем метод
         driver = webdriver.Chrome(
-            executable_path='C:\\Users\\user\\Desktop\\PycharmProjects\\resource\\chromedriver.exe')  # Указали директорию в которой находится хром драйвер, для того чтобы мы могли обращаться к браузеру гугл хром
-        base_url = 'http://localhost:5173/'  # совершенствуем код в переменную пихаем юрл который используем, удобно для ооп и для списков юрл
+            executable_path='C:\\Users\\galie\\OneDrive\\Рабочий стол\\chromedriver.exe')  # Указали директорию в которой находится хром драйвер, для того чтобы мы могли обращаться к браузеру гугл хром
+        base_url = 'app.moovenow.online'  # совершенствуем код в переменную пихаем юрл который используем, удобно для ооп и для списков юрл
         driver.get(base_url)  # указываем url на который мы хотим заходить
         driver.maximize_window()  # открывается браузер на максимальный экран
         time.sleep(1)
