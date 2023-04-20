@@ -27,7 +27,7 @@ class Test_1():  # создаем класс Test_1
         button_login = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-fbJfA eWVBmF button']")))
         button_login.click()
-        print("Click Next Button")
+        print("Click Next Button Money")
 
         button_login = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "//div[@class='sc-ktEKTO gaaqEw tag__container']")))
