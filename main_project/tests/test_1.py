@@ -25,17 +25,17 @@ class Test_1():  # создаем класс Test_1
         print("Input sum money")
 
         button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-fbJfA eWVBmF']")))
+            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-fbJfA eWVBmF button']")))
         button_login.click()
         print("Click Next Button")
 
         button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//div[@class='sc-ktEKTO gaaqEw']")))
+            EC.element_to_be_clickable((By.XPATH, "//div[@class='sc-ktEKTO gaaqEw tag__container']")))
         button_login.click()
         print("Click Moscow")
 
         button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-kFuwaP gMMzMJ']")))
+            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-fbJfA eWVBmF button']")))
         button_login.click()
         print("Click Next Button")
 
@@ -48,14 +48,14 @@ class Test_1():  # создаем класс Test_1
 
         button_login = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable(
-                (By.XPATH, "//div[@class='sc-csCMJt gWXRFM' and contains(text(), 'Amusement park')]")))
+                (By.XPATH, "//div[@class='sc-ktEKTO gaaqEw tag__container' and contains(text(), 'Amusement park')]")))
         button_login.click()
         print("Click Amusement park")
 
         time.sleep(2)
 
         button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-kFuwaP gMMzMJ']")))
+            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-fbJfA eWVBmF button']")))
         button_login.click()
         print("Click Next Button")
 
