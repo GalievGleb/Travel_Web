@@ -16,24 +16,21 @@ class Login_page(Base):
 
     sum_money = "3333"
     a_park = "A park"
-    input_sum_money = "//input[@type='number']"
-    button_next_money = "//button[@class='sc-fbJfA eWVBmF button']"
-    moscow = "//div[@class='sc-ktEKTO gaaqEw tag__container']"
-    next_button_city = "//button[@class='sc-fbJfA eWVBmF button']"
+    button = "//button[contains(@class, 'button')]"
+    loc_money = "//input[@type='number']"
+    moscow = "//div[contains(@class, 'tag__container')]"
     input_a_park = "//input[@placeholder='Enter tags you entered in (search...)']"
-    click_button_Amusement_park = "//div[@class='sc-ktEKTO gaaqEw tag__container' and contains(text(), 'Amusement " \
-                                  "park')]"
-    next_button_tags = "//button[@class='sc-fbJfA eWVBmF button']"
+    click_button_amusement_park = "//div[contains(@class, 'tag__container')]"
 
     # Getters
 
-    def get_input_sum_money(self):
+    def get_sum_money(self):
         return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.input_sum_money)))
+            EC.element_to_be_clickable((By.XPATH, self.loc_money)))
 
     def get_next_button_money(self):
         return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.button_next_money)))
+            EC.element_to_be_clickable((By.XPATH, self.button)))
 
     def get_moscow(self):
         return WebDriverWait(self.driver, 10).until(
@@ -41,24 +38,24 @@ class Login_page(Base):
 
     def get_next_button_city(self):
         return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.next_button_city)))
+            EC.element_to_be_clickable((By.XPATH, self.button)))
 
     def get_input_a_park(self):
         return WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.input_a_park)))
 
-    def get_click_button_Amusement_park(self):
+    def get_click_button_amusement_park(self):
         return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.click_button_Amusement_park)))
+            EC.element_to_be_clickable((By.XPATH, self.click_button_amusement_park)))
 
     def get_next_button_tags(self):
         return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.next_button_tags)))
+            EC.element_to_be_clickable((By.XPATH, self.button)))
 
     # Actions
 
-    def input_sum_money(self, input_sum_money):
-        self.get_input_sum_money().send_keys(input_sum_money)
+    def input_sum_money(self, sum_money):
+        self.input_sum_money().send_keys(sum_money)
         print("Input sum money")
 
     def click_next_button_money(self):
