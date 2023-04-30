@@ -16,11 +16,12 @@ class Login_page(Base):
 
     sum_money = "3333"
     a_park = "A park"
-    button = "//button[contains(@class, 'button')]"
+
+    next_button = "//button[contains(@class, 'button')]"
     loc_money = "//input[@type='number']"
     moscow = "//div[contains(@class, 'tag__container')]"
-    input_a_park = "//input[@placeholder='Enter tags you entered in (search...)']"
-    click_button_amusement_park = "//div[contains(@class, 'tag__container')]"
+    loc_a_park = "//input[@placeholder='Enter tags you entered in (search...)']"
+    loc_button_amusement_park = "//div[contains(@class, 'tag__container')]"
 
     # Getters
 
@@ -28,29 +29,21 @@ class Login_page(Base):
         return WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.loc_money)))
 
-    def get_next_button_money(self):
+    def get_next_button(self):
         return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.button)))
+            EC.element_to_be_clickable((By.XPATH, self.next_button)))
 
     def get_moscow(self):
         return WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.moscow)))
 
-    def get_next_button_city(self):
+    def get_loc_a_park(self):
         return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.button)))
+            EC.element_to_be_clickable((By.XPATH, self.loc_a_park)))
 
-    def get_input_a_park(self):
+    def get_loc_button_amusement_park(self):
         return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.input_a_park)))
-
-    def get_click_button_amusement_park(self):
-        return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.click_button_amusement_park)))
-
-    def get_next_button_tags(self):
-        return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.button)))
+            EC.element_to_be_clickable((By.XPATH, self.loc_button_amusement_park)))
 
     # Actions
 
@@ -58,53 +51,26 @@ class Login_page(Base):
         self.get_loc_money().send_keys(sum_money)
         print("Input sum money")
 
-    def click_next_button_money(self):
-        self.get_next_button_money().click()
+    def click_moscow(self):
+        self.get_moscow().click()
+        print("Click Moscow")
+
+    def input_loc_a_park(self):
+        self.get_loc_a_park().click()
+        print("Input A park")
+
+    def click_loc_button_amusement_park(self):
+        self.get_loc_button_amusement_park().click()
+        print("Click Amusement park")
+
+    def click_next_button(self):
+        self.get_next_button().click()
         print("Click next")
 
     def authorization(self):
-        user_name = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//input[@type='number']")))  # обращение к элемену через id
-        user_name.send_keys(sum_money)
-        print("Input sum money")
-
-        button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-fbJfA eWVBmF button']")))
-        button_login.click()
-        print("Click Next Button")
-
-        button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//div[@class='sc-ktEKTO gaaqEw tag__container']")))
-        button_login.click()
-        print("Click Moscow")
-
-        button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-fbJfA eWVBmF button']")))
-        button_login.click()
-        print("Click Next Button")
-
-        user_name = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//input[@placeholder='Enter tags you entered in (search...)']")))
-        user_name.send_keys(a_park)
-        print("Input a park")
-
-        time.sleep(2)
-
-        button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable(
-                (By.XPATH, "//div[@class='sc-ktEKTO gaaqEw tag__container' and contains(text(), 'Amusement park')]")))
-        button_login.click()
-        print("Click Amusement park")
-
-        time.sleep(2)
-
-        button_login = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-fbJfA eWVBmF button']")))
-        button_login.click()
-        print("Click Next Button")
-
-        time.sleep(10)
-
+        self.driver.get(self.url)
+        self.driver.maximize_window()
+        self.click_next_button()
 
 test = Login_page(Base)
 test.authorization()
