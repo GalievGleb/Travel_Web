@@ -24,7 +24,7 @@ class Login_page(Base):
 
     # Getters
 
-    def get_sum_money(self):
+    def get_loc_money(self):
         return WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.loc_money)))
 
@@ -55,7 +55,7 @@ class Login_page(Base):
     # Actions
 
     def input_sum_money(self, sum_money):
-        self.input_sum_money().send_keys(sum_money)
+        self.get_loc_money().send_keys(sum_money)
         print("Input sum money")
 
     def click_next_button_money(self):
