@@ -17,13 +17,16 @@ class Login_page(Base):
     sum_money = "3333"
     a_park = "A park"
     word_assert = "Plan your trip easily"
+    bar = "Bar"
 
     next_button = "//button[contains(@class, 'button')]"
     loc_money = "//input[@type='number']"
     moscow = "//div[contains(@class, 'tag__container')]"
-    loc_a_park = "//input[@placeholder='Enter tags you entered in (search...)']"
+    loc_tag = "//input[@placeholder='Enter tags you entered in (search...)']"
+    loc_button_bar = "//div[contains(@class, 'tag__container')]"
     loc_button_amusement_park = "//div[contains(@class, 'tag__container')]"
     main_word = "//p[@class='sc-FIATH MtuWj sc-beqWaB gtzmME paragraph main__welcome-title']"
+
     # Getters
 
     def get_loc_money(self):
@@ -38,9 +41,9 @@ class Login_page(Base):
         return WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.moscow)))
 
-    def get_loc_a_park(self):
+    def get_loc_tag(self):
         return WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.loc_a_park)))
+            EC.element_to_be_clickable((By.XPATH, self.loc_tag)))
 
     def get_loc_button_amusement_park(self):
         return WebDriverWait(self.driver, 10).until(
@@ -49,7 +52,6 @@ class Login_page(Base):
     def get_main_word(self):
         return WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.main_word)))
-
 
     # Actions
 
@@ -61,9 +63,9 @@ class Login_page(Base):
         self.get_moscow().click()
         print("Click Moscow")
 
-    def input_loc_a_park(self, a_park):
-        self.get_loc_a_park().send_keys(a_park)
-        print("Input A park")
+    def input_loc_tag(self, bar):
+        self.get_loc_tag().send_keys(bar)
+        print("Input tag")
 
     def click_loc_button_amusement_park(self):
         self.get_loc_button_amusement_park().click()
@@ -83,7 +85,7 @@ class Login_page(Base):
         self.click_next_button()
         self.click_moscow()
         self.click_next_button()
-        self.input_loc_a_park(self.a_park)
+        self.input_loc_tag(self.bar)
         self.click_loc_button_amusement_park()
         self.click_next_button()
         self.assert_word(self.get_main_word(), self.word_assert)
