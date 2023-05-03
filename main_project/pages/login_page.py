@@ -16,13 +16,14 @@ class Login_page(Base):
 
     sum_money = "3333"
     a_park = "A park"
+    word_assert = "Plan your trip easily"
 
     next_button = "//button[contains(@class, 'button')]"
     loc_money = "//input[@type='number']"
     moscow = "//div[contains(@class, 'tag__container')]"
     loc_a_park = "//input[@placeholder='Enter tags you entered in (search...)']"
     loc_button_amusement_park = "//div[contains(@class, 'tag__container')]"
-
+    main_word = "//p[@class='sc-FIATH MtuWj sc-beqWaB gtzmME paragraph main__welcome-title']"
     # Getters
 
     def get_loc_money(self):
@@ -44,6 +45,11 @@ class Login_page(Base):
     def get_loc_button_amusement_park(self):
         return WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.loc_button_amusement_park)))
+
+    def get_main_word(self):
+        return WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, self.main_word)))
+
 
     # Actions
 
@@ -72,17 +78,12 @@ class Login_page(Base):
     def authorization(self):
         self.driver.get(self.url)
         self.driver.maximize_window()
+        self.get_current_url()
         self.input_sum_money(self.sum_money)
-        time.sleep(2)
         self.click_next_button()
-        time.sleep(2)
         self.click_moscow()
-        time.sleep(2)
         self.click_next_button()
-        time.sleep(2)
         self.input_loc_a_park(self.a_park)
-        time.sleep(2)
         self.click_loc_button_amusement_park()
-        time.sleep(2)
         self.click_next_button()
-        time.sleep(2)
+        self.assert_word(self.get_main_word(), self.word_assert)
