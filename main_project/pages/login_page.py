@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import time
 from main_project.base.base_class import Base
 
 
@@ -72,11 +72,17 @@ class Login_page(Base):
     def authorization(self):
         self.driver.get(self.url)
         self.driver.maximize_window()
-        self.input_sum_money("3333")
+        self.input_sum_money(self.sum_money)
+        time.sleep(2)
         self.click_next_button()
+        time.sleep(2)
         self.click_moscow()
+        time.sleep(2)
         self.click_next_button()
-        self.input_loc_a_park("A park")
+        time.sleep(2)
+        self.input_loc_a_park(self.a_park)
+        time.sleep(2)
         self.click_loc_button_amusement_park()
+        time.sleep(2)
         self.click_next_button()
-
+        time.sleep(2)
