@@ -55,8 +55,8 @@ class Login_page(Base):
         self.get_moscow().click()
         print("Click Moscow")
 
-    def input_loc_a_park(self):
-        self.get_loc_a_park().click()
+    def input_loc_a_park(self, a_park):
+        self.get_loc_a_park().send_keys(a_park)
         print("Input A park")
 
     def click_loc_button_amusement_park(self):
@@ -67,10 +67,16 @@ class Login_page(Base):
         self.get_next_button().click()
         print("Click next")
 
+    # Methods
+
     def authorization(self):
         self.driver.get(self.url)
         self.driver.maximize_window()
+        self.input_sum_money("3333")
+        self.click_next_button()
+        self.click_moscow()
+        self.click_next_button()
+        self.input_loc_a_park("A park")
+        self.click_loc_button_amusement_park()
         self.click_next_button()
 
-test = Login_page(Base)
-test.authorization()
