@@ -22,7 +22,7 @@ class Base():
     def get_screenshot(self):
         now_date = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M")
         name_screenshot = 'screenshot' + now_date + '.png'
-        self.driver.save_screenshot('C:\\Users\\galie\\Desktop\\travel_web\\screen' + name_screenshot)
+        self.driver.save_screenshot('C:\\Users\\galie\\Desktop\\travel_web\\screen\\' + name_screenshot)
 
     """Method assert word"""
 
