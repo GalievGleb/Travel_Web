@@ -13,7 +13,7 @@ class Main_page(Base):
 
     # Locators
 
-    select_product_1 = "//div[@class='sc-cbelXg pIDKX activity-card__square-button']"
+    select_product_1 = "//div[@title='Urban Kitchen Кафе / Гастропаб / Кулинарная студия']//div[@class='sc-cbelXg pIDKX activity-card__square-button']"
     basket = "//img[@class='selected-activity__photo']"
 
     # Getters
