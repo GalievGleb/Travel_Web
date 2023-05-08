@@ -3,6 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from main_project.base.base_class import Base
+from main_project.utilities.logger import Logger
 
 
 class Screen_page(Base):
@@ -20,7 +21,9 @@ class Screen_page(Base):
     # Methods
 
     def screen(self):
+
+        Logger.add_start_step(method="screen")
         self.get_current_url()
         self.assert_url('https://app.moovenow.online/')
         self.get_screenshot()
-
+        Logger.add_end_step(url=self.driver.current_url, method="screen")

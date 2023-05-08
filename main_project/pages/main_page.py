@@ -3,6 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from main_project.base.base_class import Base
+from main_project.utilities.logger import Logger
 
 
 class Main_page(Base):
@@ -38,8 +39,12 @@ class Main_page(Base):
     # Methods
 
     def select_product(self):
+
+        Logger.add_start_step(method="select_product")
         self.get_current_url()
         self.click_select_product_1()
         time.sleep(3)
         self.click_basket()
         time.sleep(3)
+        Logger.add_end_step(url=self.driver.current_url, method="select_product")
+
