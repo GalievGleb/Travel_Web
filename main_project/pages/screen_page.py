@@ -5,7 +5,7 @@ import time
 from main_project.base.base_class import Base
 
 
-class Finish_page(Base):
+class Screen_page(Base):
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
@@ -19,7 +19,7 @@ class Finish_page(Base):
 
     # Methods
 
-    def finish(self):
+    def screen(self):
         self.get_current_url()
         self.assert_url('https://app.moovenow.online/')
         self.get_screenshot()
